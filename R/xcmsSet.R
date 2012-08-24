@@ -15,15 +15,14 @@ xcmsSet <- function(files = NULL, snames = NULL, sclass = NULL, phenoData = NULL
     if (is.function(progressCallback))
         object@progressCallback <- progressCallback
 
-    filepattern <- c("[Cc][Dd][Ff]", "[Nn][Cc]", "([Mm][Zz])?[Xx][Mm][Ll]",
-                     "[Mm][Zz][Dd][Aa][Tt][Aa]", "[Mm][Zz][Mm][Ll]")
-    filepattern <- paste(paste("\\.", filepattern, "$", sep = ""), collapse = "|")
+    filepattern <- c("cdf", "nc", "(mz)?xml", "mzdata", "mzml")
+    filepattern <- paste("\\.", filepattern, "$", sep = "", collapse = "|")
 
     if (is.null(files))
         files <- getwd()
     info <- file.info(files)
     listed <- list.files(files[info$isdir], pattern = filepattern,
-                         recursive = TRUE, full.names = TRUE)
+                         recursive = TRUE, full.names = TRUE, ignore.case=TRUE)
     files <- c(files[!info$isdir], listed)
 
     # try making paths absolute
