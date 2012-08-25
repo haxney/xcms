@@ -29,7 +29,7 @@ exportClasses(
               "xcmsPeaks",
               "xcmsRaw",
               "xcmsSet",
-	      "xcmsFragments"
+              "xcmsFragments"
               )
 
 exportMethods(
