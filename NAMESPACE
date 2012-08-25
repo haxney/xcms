@@ -34,7 +34,7 @@ exportClasses(
 
 exportMethods(
               "absent",
-			  "AutoLockMass",
+              "AutoLockMass",
               "calibrate",
               "collect",
               "deepCopy",
